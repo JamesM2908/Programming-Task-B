@@ -25,4 +25,8 @@ if (current_day == 0):
     elif (current_day % 7 == 0):
         restocked_items = 0
         restocked_items = 2000
+        restocked_items -=available_items
+        available_items += restocked_items
+        sales = 0
+        inventory_records.append([current_day, sales, restocked_items,available_items])
 return available_items 
