@@ -17,25 +17,12 @@ available_items:(integer) This function returns this integer which updates the a
 
 The function will also update the inventory_records (For restocking) for a  given current day. It will also return "available_items".
     '''
- total_units_sold = total_units_sold + number_sold
-
-    inventory_records = {
-        "day" : current_day,
-        "sold units" : total_units_sold,
-        "restocked units" : restock_needed,
-        "availible units" : availible_items 
-    }
-
-    if current_day % 7 != 0:
-        number_sold = random.randint(0,200)
-        available_items = available_items - number_sold
-    elif current_day % 7 == 0:
-        restock_needed = total_units_sold
-        available_items = restock_needed + available_items
-    else:
-        print("Invalid day")
-    
-    if availible_items > 2000:
-        availible_items = 2000
-        
-    return available_items
+if (current_day == 0):
+        restocked_items = 2000 
+        available_items = 2000 
+        sales = 0 
+        inventory_records.append([current_day, sales, restocked_items, available_items])
+    elif (current_day % 7 == 0):
+        restocked_items = 0
+        restocked_items = 2000
+return available_items 
